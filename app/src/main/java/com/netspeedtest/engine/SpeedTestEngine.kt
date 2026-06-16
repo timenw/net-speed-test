@@ -3,6 +3,7 @@ package com.netspeedtest.engine
 import kotlinx.coroutines.*
 import okhttp3.OkHttpClient
 import okhttp3.Request
+import okhttp3.MediaType.Companion.toMediaType
 import java.io.IOException
 import java.net.DatagramPacket
 import java.net.DatagramSocket
@@ -204,8 +205,10 @@ class SpeedTestEngine {
     private fun measureUploadSpeed(onProgress: (Float) -> Unit = {}): Double {
         return try {
             val uploadData = ByteArray(100 * 1024) { (it % 256).toByte() }  // 100KB
-            val mediaType = okhttp3.`MediaType`.parse("application/octet-stream") as okhttp3.MediaType
-            val requestBody = okhttp3.RequestBody.create(mediaType, uploadData)
+            val requestBody = okhttp3.RequestBody.Companion.create(
+                uploadData,
+                "application/octet-stream".toMediaType()
+            )
             val request = Request.Builder()
                 .url(UPLOAD_URL)
                 .post(requestBody)
