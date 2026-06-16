@@ -204,10 +204,8 @@ class SpeedTestEngine {
     private fun measureUploadSpeed(onProgress: (Float) -> Unit = {}): Double {
         return try {
             val uploadData = ByteArray(100 * 1024) { (it % 256).toByte() }  // 100KB
-            val requestBody = okhttp3.RequestBody.create(
-                "application/octet-stream".toMediaType(),
-                uploadData
-            )
+            val mediaType = okhttp3.MediaType.get("application/octet-stream")
+            val requestBody = okhttp3.RequestBody.create(mediaType, uploadData)
             val request = Request.Builder()
                 .url(UPLOAD_URL)
                 .post(requestBody)

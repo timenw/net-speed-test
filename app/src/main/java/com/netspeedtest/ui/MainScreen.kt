@@ -104,13 +104,13 @@ fun MainScreen() {
                 // Bottom navigation
                 NavigationBar(containerColor = White) {
                     NavigationBarItem(
-                        icon = { Icon(Icons.Default.Wifi, contentDescription = "Test") },
+                        icon = { Icon(Icons.Default.SignalCellularAlt, contentDescription = "Test") },
                         label = { Text("Test") },
                         selected = currentTab == 0,
                         onClick = { currentTab = 0 }
                     )
                     NavigationBarItem(
-                        icon = { Icon(Icons.Default.AccessTime, contentDescription = "History") },
+                        icon = { Icon(Icons.Default.Schedule, contentDescription = "History") },
                         label = { Text("History") },
                         selected = currentTab == 1,
                         onClick = {
@@ -311,7 +311,7 @@ fun TestingView(progress: Int, status: String) {
             contentAlignment = Alignment.Center
         ) {
             CircularProgressIndicator(
-                progress = { progress / 100f },
+                progress = progress / 100f,
                 modifier = Modifier.size(140.dp),
                 color = Blue500,
                 strokeWidth = 8.dp,
@@ -463,7 +463,7 @@ fun HistoryTab(padding: PaddingValues, results: List<SpeedTestEngine.TestResult>
             ) {
                 Column(horizontalAlignment = Alignment.CenterHorizontally) {
                     Icon(
-                        Icons.Default.AccessTime,
+                        Icons.Default.Schedule,
                         contentDescription = null,
                         tint = Grey300,
                         modifier = Modifier.size(64.dp)
