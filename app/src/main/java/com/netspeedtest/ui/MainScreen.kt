@@ -104,13 +104,13 @@ fun MainScreen() {
                 // Bottom navigation
                 NavigationBar(containerColor = White) {
                     NavigationBarItem(
-                        icon = { Icon(Icons.Default.Speed, contentDescription = "Test") },
+                        icon = { Icon(Icons.Default.Wifi, contentDescription = "Test") },
                         label = { Text("Test") },
                         selected = currentTab == 0,
                         onClick = { currentTab = 0 }
                     )
                     NavigationBarItem(
-                        icon = { Icon(Icons.Default.History, contentDescription = "History") },
+                        icon = { Icon(Icons.Default.AccessTime, contentDescription = "History") },
                         label = { Text("History") },
                         selected = currentTab == 1,
                         onClick = {
@@ -364,7 +364,7 @@ fun ResultCard(result: SpeedTestEngine.TestResult) {
             StabilityScoreWidget(result.stabilityScore)
 
             Spacer(modifier = Modifier.height(16.dp))
-            HorizontalDivider(color = Grey200)
+            Divider(color = Grey200, thickness = 1.dp)
             Spacer(modifier = Modifier.height(12.dp))
 
             // Metrics grid
@@ -378,7 +378,7 @@ fun ResultCard(result: SpeedTestEngine.TestResult) {
             }
 
             Spacer(modifier = Modifier.height(12.dp))
-            HorizontalDivider(color = Grey200)
+            Divider(color = Grey200, thickness = 1.dp)
             Spacer(modifier = Modifier.height(12.dp))
 
             Row(
@@ -463,7 +463,7 @@ fun HistoryTab(padding: PaddingValues, results: List<SpeedTestEngine.TestResult>
             ) {
                 Column(horizontalAlignment = Alignment.CenterHorizontally) {
                     Icon(
-                        Icons.Default.History,
+                        Icons.Default.AccessTime,
                         contentDescription = null,
                         tint = Grey300,
                         modifier = Modifier.size(64.dp)
@@ -595,7 +595,7 @@ fun SettingsTab(
                 verticalAlignment = Alignment.CenterVertically
             ) {
                 Icon(
-                    if (isPremium) Icons.Default.Verified else Icons.Default.Star,
+                    if (isPremium) Icons.Default.CheckCircle else Icons.Default.Star,
                     contentDescription = null,
                     tint = if (isPremium) Green500 else Orange500,
                     modifier = Modifier.size(24.dp)
