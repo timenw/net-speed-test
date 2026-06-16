@@ -205,7 +205,7 @@ class SpeedTestEngine {
         return try {
             val uploadData = ByteArray(100 * 1024) { (it % 256).toByte() }  // 100KB
             val requestBody = okhttp3.RequestBody.create(
-                okhttp3.MediaType.parse("application/octet-stream"),
+                "application/octet-stream".toMediaType(),
                 uploadData
             )
             val request = Request.Builder()
