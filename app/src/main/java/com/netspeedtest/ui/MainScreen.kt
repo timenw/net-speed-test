@@ -104,13 +104,13 @@ fun MainScreen() {
                 // Bottom navigation
                 NavigationBar(containerColor = White) {
                     NavigationBarItem(
-                        icon = { Icon(Icons.Default.SignalCellularAlt, contentDescription = "Test") },
+                        icon = { Icon(Icons.Default.Home, contentDescription = "Test") },
                         label = { Text("Test") },
                         selected = currentTab == 0,
                         onClick = { currentTab = 0 }
                     )
                     NavigationBarItem(
-                        icon = { Icon(Icons.Default.Schedule, contentDescription = "History") },
+                        icon = { Icon(Icons.Default.Info, contentDescription = "History") },
                         label = { Text("History") },
                         selected = currentTab == 1,
                         onClick = {
@@ -463,7 +463,7 @@ fun HistoryTab(padding: PaddingValues, results: List<SpeedTestEngine.TestResult>
             ) {
                 Column(horizontalAlignment = Alignment.CenterHorizontally) {
                     Icon(
-                        Icons.Default.Schedule,
+                        Icons.Default.Info,
                         contentDescription = null,
                         tint = Grey300,
                         modifier = Modifier.size(64.dp)
